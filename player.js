@@ -13,7 +13,7 @@ txtVol.value = volRangeBar.value;
 progressBar.max = audio.duration;
 
 function playMusic() {
-    audio.play();
+    //audio.play();
     btnPlay.innerText = ";";
     btnPlay.onclick = pauseMusic;
     infoPannel.children[0].innerText = "目前播放的是 " + audio.title + " ... ...";
