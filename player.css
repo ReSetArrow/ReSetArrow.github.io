@@ -1,0 +1,219 @@
+* {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#controlPanel {
+    background: #bb0a92;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    width: 600px;
+    padding: 20px;
+    height: 430px;
+}
+
+#children0, #children1, #children3, #children5  {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px;
+}
+
+#children0 .span1 {
+    background-color: #358181;
+    color: white;
+    font-family: 'webdings';
+    font-size: 18px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+.span1:hover {
+    transform: scale(1.1);
+}
+
+.span1 img {
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.span1 img:hover {
+    transform: rotate(360deg);
+}
+#children0 .span2 {
+    background-color: red;
+}
+
+input[type="button"] {
+    width: 40px;
+    height: 40px;
+    font-size: 14px;
+    font-style:inherit;
+    background-color: #b20fe4;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
+    box-sizing: border-box;
+}
+
+input[type="button"]:hover {
+    transform: scale(1.1);
+}
+
+input[type="button"]:active {
+    transform: scale(0.95);
+}
+
+input[type="text"] {
+    background: #1e2329;
+    color: #dae815;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    padding: 5px;
+    text-align: center;
+    width: 50px;
+    font-size: 20px;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 10px;
+    border-radius: 10px;
+    position: relative;
+    outline: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+/* Hover effect on the range bar */
+input[type="range"]:hover {
+    background: #29952e; /* 滑鼠懸停時顏色變化 */
+}
+
+/* Range thumb (the handle) */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 16px;
+    width: 16px;
+    background: #fff;
+    border-radius: 50%;
+    border: 2px solid #000000;
+    cursor: pointer;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+input[type="range"]:hover::-webkit-slider-thumb {
+    transform: scale(1.3); 
+}
+
+input[type="range"]::-moz-range-thumb {
+    height: 24px;
+    width: 24px;
+    background: #fff;
+    border-radius: 50%;
+    border: 2px solid #000000;
+    cursor: pointer;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    height: 12px;
+    border-radius: 10px;
+    background: #ffffff;
+}
+
+input[type="range"]::-moz-range-track {
+    height: 12px;
+    border-radius: 10px;
+    background: #ffffff;
+}
+
+#children5 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+#children5 input[type="range"] {
+    background-color: #ffffff;
+    border: 1px solid #000000;
+    flex: 1;
+}
+
+#children5 div {
+    font-size: 24px;
+    color: #dae815;
+    text-align: center;
+}
+
+select {
+    background: #1e2329;
+    color: white;
+    border: 2px solid #002aff;
+    border-radius: 5px;
+    padding: 5px;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    font-size: 1rem;
+}
+
+#children7 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+}
+
+#children7 div {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    background:  #ffffff;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s, color 0.3s;
+}
+
+#children7 div:hover {
+    transform: scale(1.2);
+    background:  #f8d7f8;
+    background-clip: text;
+    color: transparent;
+}
