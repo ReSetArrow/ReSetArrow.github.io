@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //a.信用卡付款 b.現金付款 c.轉帳付款 d.Line Pay e.貨到付款
+
+        var payType = "c";
+        switch (payType){
+            case "a":
+                document.write("信用卡付款");
+                break;
+            case "b":
+                document.write("現金付款");
+                break;   
+            case "c":
+                document.write("轉帳付款");
+                break;   
+            case "d":
+                document.write("Line Pay");
+                break;   
+            case "e":
+                document.write("貨到付款");
+                break;       
+            default:
+                document.write("請輸入a-e其中一個字母");
+                break;            
+                
+        }
+        document.write("<hr>");
+
+        /////////////////////////////////////////////
+        //區分等第
+        //90分以上為優等，80-89分為甲等，70-79分為乙等
+        //60-69分為丙等，60分以下為丁等
+        //限定用switch
+
+        /* var score=60
+        if(score < 0 || score > 100) {
+            document.write("請輸入0-100的數字");
+        }
+        else{
+            switch(true){
+                case(score>=90):
+                    document.write("優等");
+                    break;
+                case(score>=80):
+                    document.write("甲等");
+                    break;
+                case(score>=70):
+                    document.write("乙等");
+                    break;
+                case(score>=60):
+                    document.write("丙等");
+                    break;
+                default:
+                    document.write("丁等");
+                    break
+            }
+        }
+        document.write("<hr>"); */
+
+        var score=85
+        score = parseInt(score / 10);
+        if (score<0 || score>10){
+            document.write("請輸入0-100的數字")
+        }  
+        else{
+            switch(score){
+            case 10:
+            case 9:
+                document.write("優等");
+                break;
+            case 8:
+                document.write("甲等");
+                break;
+            case 7:
+                document.write("乙等");
+                break;
+            case 6:
+                document.write("丙等");
+               break;
+            default:    
+               document.write("丁等");
+                break
+            }
+        }
+        
+        document.write("<hr>"); 
+
+    </script>
+</body>
+</html>
