@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 </head>
 
 <body>
@@ -27,22 +28,57 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="JavaScript/01Var.html">01Var</a></li>
-                                <li><a class="dropdown-item" href="#">02DataType</a></li>
-                                <li><a class="dropdown-item" href="#">03Expression</a></li>
-                                <li><a class="dropdown-item" href="#">04FlowControl_if</a></li>
-                                <li><a class="dropdown-item" href="#">05FlowControl_switch</a></li>
-                                <li><a class="dropdown-item" href="#">06FlowControl_for</a></li>
-                                <li><a class="dropdown-item" href="#">07Practice</a></li>
-                                <li><a class="dropdown-item" href="#">08Practice</a></li>
-                                <li><a class="dropdown-item" href="#">09FlowCintrol_while</a></li>
-                                <li><a class="dropdown-item" href="#">10Array</a></li>
-                                <li><a class="dropdown-item" href="#">11Practice</a></li>
-                                <li><a class="dropdown-item" href="#">12Function</a></li>
-                                <li><a class="dropdown-item" href="#">13Exsample</a></li>
+                                <li><a class="dropdown-item" href="JavaScript/02DataType.html">02DataType</a></li>
+                                <li><a class="dropdown-item" href="JavaScript/03Expression.html">03Expression</a></li>
+                                <li><a class="dropdown-item"
+                                        href="JavaScript/04FlowControl_if.html">04FlowControl_if</a></li>
+                                <li><a class="dropdown-item"
+                                        href="JavaScript/05FlowControl_switch.html">05FlowControl_switch</a></li>
+                                <li><a class="dropdown-item"
+                                        href="JavaScript/06FlowControl_for.html">06FlowControl_for</a></li>
+                                <li><a class="dropdown-item" href="JavaScript/07Practice.html">07Practice</a></li>
+                                <li><a class="dropdown-item" href="JavaScript/08Practice.html">08Practice</a></li>
+                                <li><a class="dropdown-item"
+                                        href="JavaScript/09FlowControl_while.html">09FlowControl_while</a></li>
+                                <li><a class="dropdown-item" href="JavaScript/10Array.html">10Array</a></li>
+                                <li><a class="dropdown-item" href="JavaScript/11Practice.html">11Practice</a></li>
+                                <li><a class="dropdown-item" href="JavaScript/12Function.html">12Function</a></li>
+                                <li><a class="dropdown-item" href="JavaScript/13Exsample.html">13Exsample</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="#">player</a></li>
+                                <li><a class="dropdown-item" href="player.html">player</a></li>
+                            </ul>
+                        </li>
+
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Web
+                            </a>
+                            <ul class="dropdown-menu" id="web-menu">
+                                <li><a class="dropdown-item" href="JavaScript/01Var.html">01Var</a></li>
+                                <li><a class="dropdown-item" href="JavaScript/02DataType.html">02DataType</a></li>
+                                <li><a class="dropdown-item" href="JavaScript/03Expression.html">03Expression</a></li>
+                                <li><a class="dropdown-item"
+                                        href="JavaScript/04FlowControl_if.html">04FlowControl_if</a></li>
+                                <li><a class="dropdown-item"
+                                        href="JavaScript/05FlowControl_switch.html">05FlowControl_switch</a></li>
+                                <li><a class="dropdown-item"
+                                        href="JavaScript/06FlowControl_for.html">06FlowControl_for</a></li>
+                                <li><a class="dropdown-item" href="JavaScript/07Practice.html">07Practice</a></li>
+                                <li><a class="dropdown-item" href="JavaScript/08Practice.html">08Practice</a></li>
+                                <li><a class="dropdown-item"
+                                        href="JavaScript/09FlowControl_while.html">09FlowControl_while</a></li>
+                                <li><a class="dropdown-item" href="JavaScript/10Array.html">10Array</a></li>
+                                <li><a class="dropdown-item" href="JavaScript/11Practice.html">11Practice</a></li>
+                                <li><a class="dropdown-item" href="JavaScript/12Function.html">12Function</a></li>
+                                <li><a class="dropdown-item" href="JavaScript/13Exsample.html">13Exsample</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="player.html">player</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -59,15 +95,31 @@
         <iframe id="content-frame" src="" style="width:100%;height:100%;border:none;"></iframe>
     </div>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
-        crossorigin="anonymous"></script>
     <script>
+        // Web 資料夾檔案清單
+        const webFiles = [
+            { name: "01Var", file: "JavaScript/01Var.html" },
+            { name: "02DataType", file: "JavaScript/02DataType.html" },
+            { name: "03Expression", file: "JavaScript/03Expression.html" },
+            // ... 其餘 44 個 ...
+            { name: "47Something", file: "JavaScript/47Something.html" }
+        ];
+
+        // 動態產生 Web 下拉選單
+        const webMenu = document.getElementById('web-menu');
+        webFiles.forEach(item => {
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.className = 'dropdown-item';
+            a.href = item.file;
+            a.textContent = item.name;
+            li.appendChild(a);
+            webMenu.appendChild(li);
+        });
+
         // 攔截 dropdown-item 的點擊事件
         document.addEventListener('DOMContentLoaded', function () {
-            document.querySelectorAll('.dropdown-item').forEach(function (item) {
+            document.querySelectorAll('.dropdown-item, .nav-link.dropdown-toggle').forEach(function (item) {
                 item.addEventListener('click', function (e) {
                     var href = this.getAttribute('href');
                     if (href && href !== '#') {
