@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+        區分等第
+        90分以上為優等，80-89分為甲等，70-79分為乙等，60-69分為丙等，60分以下為丁等
+        輸出範例:
+        S001-王小明-優等
+        S002-王大明-甲等
+        S003-王中明-丁等
+        */
+        var arrStudentNo = ["S001", "S002", "S003", "S004", "S005", "S006", "S007", "S008", "S009", "S010"];
+        var arrStudentName = ["王小明", "王大明", "王中明", "王右明", "王左明", "王上明", "王下明", "張三", "李四", "王五"];
+        var arrStudentScore = [92, 87, 56, 68, 85, 83, 77, 71, 85, 93];
+        var level = "";
+        for (var score in arrStudentName) {
+            if (arrStudentScore[score] >= 90) {
+                level = "優等";
+            }
+            else if (arrStudentScore[score] >= 80) {
+                level = "甲等";
+            }
+            else if (arrStudentScore[score] >= 70) {
+                level = "乙等";
+            }
+            else if (arrStudentScore[score] >= 60) {
+                level = "丙等";
+            }
+            else {
+                level = "丁等";
+            }
+            document.write(`${arrStudentNo[score]}-${arrStudentName[score]}-${level}<br>`);
+        }
+        document.write("<hr>");
+
+        /* 嘗試迴圈不用 if 及 switch 語句 */
+        var arrLevels = ["丁等", "丁等", "丁等", "丁等", "丁等", "丁等", "丙等", "乙等", "甲等", "優等", "優等"];
+        for (var i in arrStudentNo) {
+            var score = arrStudentScore[i];
+            var level2 = arrLevels[Math.floor(score / 10)];
+            document.write(`${arrStudentNo[i]}-${arrStudentName[i]}-${level2}<br>`);
+        }
+        document.write("<hr>");
+        /* 
+        [Math.floor()],所得值為小於等於括弧內的運算結果的最大整數
+        5.05=5;
+        5.95=5;
+        -5.05=-6;
+        -5.95=-6
+        */
+
+        /* 使用 03 內容的 parseInt 將 arrStudentScore[i] /10 取整數 */
+        var level3 = "", index = 0; /* 設空字串以及一個用於重新定位 arrLevels[] 的數值 */
+        for (var i in arrStudentNo) {
+            index = parseInt(arrStudentScore[i] / 10);  /* 數值 index 為 arrStudentScore[] 定位 */
+            level3 = arrLevels[index];  /* 將取整後的數值帶入 arrLevels[] 並用 level3 字串輸出等第 */
+            document.write(`${arrStudentNo[i]}-${arrStudentName[i]}-${level3}<br>`);
+        }
+        document.write("<hr>");
+
+    </script>
+</body>
+
+</html>
