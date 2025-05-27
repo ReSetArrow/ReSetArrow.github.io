@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="MyTimer"></div>
+
+    <hr>
+
+    <h1 id="MyTimer2"></h1>
+
+    <div>
+        X:<input type="text" name="" id="X" readonly>
+        Y:<input type="text" name="" id="Y" readonly>
+
+    </div>
+
+    <script>
+
+        var MyTimer = document.getElementById("MyTimer");
+        var MyTimer2 = document.getElementById("MyTimer2");
+
+        function getMyTime() {
+
+            var timer = new Date();
+            /* document.write(timer); */
+
+            MyTimer.innerText = timer;
+            MyTimer2.innerText = timer;
+
+            setTimeout(getMyTime, 1000);
+
+        }
+
+        getMyTime()
+
+        ///////////////////////////////////////
+        var X = document.getElementById("X");
+        var Y = document.getElementById("Y");
+        
+
+        function getXY(evt) {
+            X.value = evt.pageX;
+            Y.value = evt.pageY;
+        }
+
+        document.addEventListener("mousemove", getXY);
+
+    </script>
+
+
+</body>
+
+</html>
