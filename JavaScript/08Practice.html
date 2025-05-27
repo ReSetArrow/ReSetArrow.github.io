@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        ///////////////////////////////////////////
+
+        /* document.write("*<br>");
+        document.write("**<br>");
+        document.write("***<br>");
+        document.write("****<br>");
+        document.write("*****<br>");
+        *
+        **
+        ***
+        ****
+        *****
+        用迴圈方式寫出上述圖形 */
+
+        //////////////////////////////////////////
+        /* prompt 可以使網站跳出可互動的對話框 */
+        var x = parseInt(prompt("請輸入需要的*金字塔層數")) //用x代表可變得層數
+        if (x <= 0) {
+            document.write("請輸入正整數"); //若x<=0則無法正常運作
+        }
+        else {  //正整數的x層數進入程式
+
+            //////////////////////////////////////////
+
+            document.write("巢狀迴圈顯示結果" + "<br>");
+            for (var j = 1; j <= x; j++) {
+                for (var i = 1; i <= j; i++) {
+                    document.write("*");
+                }   //以"j"迴圈執行的次數為固定值執行迴圈(j<=x)，故"i"迴圈的"*"與"j"迴圈的層數有i<=j的關聯
+                document.write("<br>");
+            }   //因i迴圈會固定輸出"*"，需設"j"變數使"i"迴圈有1-x的順序輸出對應層數的對應內容
+            document.write("<hr>"); //for迴圈結束後空一行
+
+            document.write("巢狀迴圈金字塔結果應用" + "<br>");
+            for (var j = 1; j <= x; j++) {
+                for (var i = 1; i <= 2 * j - 1; i++) {
+                    document.write("*");
+                }   //以"j"迴圈執行的次數為固定值執行迴圈(j<=x)，故"i"迴圈的"*"與"j"迴圈的層數有i<=j的關聯
+                document.write("<br>");
+            }   //因i迴圈會固定輸出"*"，需設"j"變數使"i"迴圈有1至x的順序輸出對應層數的對應內容
+            document.write("<hr>");
+
+            //////////////////////////////////////////
+
+            //不使用巢狀迴圈
+            document.write("不使用巢狀迴圈顯示結果" + "<br>");
+            var i = ""; // 初始化一個空字串來儲存每次迴圈的星號
+
+            for (var j = 1; j <= x; j++) {
+                i += "*"; // 每次迴圈時增加一個星號 i=i+"*"
+                document.write(i + "<br>"); // 顯示目前累積的星號並換行
+            }
+            document.write("<hr>");
+
+            //////////////////////////////////////////
+
+            document.write("顯示正金字塔結果" + "<br>");
+            var l=""; // 再初始化一次空字串，若上方有相同的會累計，故重新宣告
+            for (j = 1; j <= x; j++) {  //迴圈直到需求的x層
+                var a = x - j;  //計算每一層的" "需要幾個
+                var b = 2 * j - 1;  //計算每一層的"*"需要幾個
+                for (var k = 1; k <= a; k++) {
+                    l += "&nbsp;";  // k 迴圈累加" "的顯示
+                }
+                for (var k = 1; k <= b; k++) {
+                    l += "*";   // k 迴圈累加"*"的顯示
+                }
+                l += "<br>"; // j 迴圈內執行完 k 迴圈時顯示結果並換行
+            }
+            document.write(l);  // j 迴圈完成後在迴圈外顯示完整 l 字串
+            document.write("<hr>");
+
+            //////////////////////////////////////////
+
+            //GPT程式碼參考
+            /* var i = ""; // 用於存儲每層的空格和星號
+
+            for (var j = 1; j <= x; j++) {
+                var a = x - j; // 計算空格數量
+                var b = 2 * j - 1; // 計算星號數量
+
+                // 手動累加空格
+                for (var k = 1; k <= a; k++) {
+                    i += "&nbsp;"; // 每次迴圈將空格累加
+                }
+
+                // 手動累加星號
+                for (var k = 1; k <= b; k++) {
+                    i += "*"; // 每次迴圈將星號累加
+                }
+
+                i += "<br>"; // 在結束每層後加上換行符
+            }
+
+            // 輸出整個金字塔
+            document.write(i); */
+
+
+            //////////////////////////////////////////
+
+            //九九乘法表
+            document.write("九九乘法表" + "<br>");
+            for (j = 2; j <= 9; j++) {
+                for (i = 1; i <= 9; i++) {
+                    document.write(j + "*" + i + "=" + j * i+"<br>");
+                }
+                document.write("<br>");
+            }
+        }
+
+    </script>
+
+
+</body>
+
+</html>
