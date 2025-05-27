@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //JS只有三種基本資料型態
+        //1.數值(Number)
+        //2.字串(String)
+        //3.布林(Boolean)
+
+
+        var a="123"; //宣告及初始化
+        var b="456";
+        var c=true;
+        
+        a=123;  //指定運算(賦值)
+        
+        document.write(a);
+        document.write(b);
+        document.write(c);
+        
+        document.write("<hr>"); //<hr>是html語法，<script>內用必須這樣寫才有作用
+        document.write(typeof(a));
+        document.write("<br>");
+        document.write(typeof(b));
+        document.write("<br>");
+        document.write(typeof(c));
+
+        document.write("<hr>");
+    
+        /////////////////////////////////////////////////////
+
+        document.write("a="+a);
+        document.write("<br>");
+        document.write("b="+b);
+        document.write("<br>");
+        document.write("c="+c);
+        document.write("<hr>");
+
+        var n=98798456321098731320879321035789;
+        document.write("n="+n);
+        document.write("<hr>");
+    
+        var n1=1.3;
+        var n2=1.5;
+        var r=n1+n2;
+        document.write("r="+r);
+        document.write("<br>");
+        var r2=n2-n1;
+        document.write("r2="+r2);
+        document.write("<br>");
+
+
+        document.write(n2-n1);
+        document.write("<hr>");
+        /////////////////////////////////////////////////////
+        var g=123;
+        document.write("g="+g);
+        document.write("<br>");
+        
+        var i=0x123;    //16進位
+        document.write("i="+i);
+        document.write("<br>");
+
+        var i2=0x1FCD;  //16進位
+        document.write("i2="+i2);
+        document.write("<br>");
+
+        var j=0b100010;
+        document.write("j="+j);
+        document.write("<br>");
+
+        var k=08515;    //10進位(8進位不會有8出現)
+        document.write("k="+k);
+        document.write("<hr>");
+
+        /////////////////////////////////////////////////////
+
+        //兩數交換
+        //請宣告兩變數分別為x與y，請給x,y任意的數值，程式內容請把x與y的值對調
+        //並輸出對調後的結果
+
+        var x=345,y=4838;
+        //    x=x^y;
+        //    y=x^y;
+        //    x=x^y;
+            var z=x;
+            x=y;
+            y=z;
+
+        document.write("x="+x);
+        document.write(",");
+        document.write("y="+y);
+        </script>
+
+</body>
+</html>
