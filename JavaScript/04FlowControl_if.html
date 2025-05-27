@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        /*
+        if 敘述句...(用於流程控制)
+
+        語法:
+
+        if(條件){
+            條件成立時要執行的程式
+            要執行的程式可以不只一行
+        }
+
+        */
+
+        var s = 60;
+        if (s <= 60){
+            document.write("s的值小於等於60!!"+"<br>");
+        }
+
+        if (s < 60){
+            document.write("s的值小於60!!"+"<br>");
+        }
+
+        if (s == 60){
+            document.write("s的值等於60!!"+"<br>");
+        }
+
+        if (s >= 60){
+            document.write("s的值大於等於60!!"+"<br>");
+        }
+
+        if (s > 60){
+            document.write("s的值大於60!!"+"<br>");
+        }
+
+        document.write("<hr>");
+
+        /////////////////////////////////////////////
+        /*
+        if 敘述句...(用於流程控制)
+
+        語法:
+
+        if(條件){
+            條件成立時要執行的程式
+            要執行的程式可以不只一行
+        }
+        else{
+            條件不成立時要執行的程式
+            要執行的程式可以不只一行
+        }
+
+        */
+
+        var s = 60;
+        if (s <= 60){
+            document.write("s的值小於等於60!!"+"<br>");
+        }
+        else {
+            document.write("s的值沒有等於60!!"+"<br>");
+        }
+
+        if (s < 60){
+            document.write("s的值小於60!!"+"<br>");
+        }
+        else {
+            document.write("s的值沒有小於60!!"+"<br>");
+        }
+
+        if (s == 60){
+            document.write("s的值等於60!!"+"<br>");
+        }
+        else {
+            document.write("s的值沒有等於60!!"+"<br>");
+        }
+
+        if (s >= 60){
+            document.write("s的值大於等於60!!"+"<br>");
+        }
+        else {
+            document.write("s的值沒有大於等於60!!"+"<br>");
+        }
+
+        if (s > 60){
+            document.write("s的值大於60!!"+"<br>");
+        }
+        else {
+            document.write("s的值沒有大於60!!"+"<br>");
+        }
+
+        document.write("<hr>");
+
+        /////////////////////////////////////////////
+        /////////////////////////////////////////////
+        //1.信用卡付款 2.現金付款 3.轉帳付款 4.Line Pay 5.貨到付款
+
+        var payType = 6;
+
+         /* 
+        整段快速註解:Shuft+Alt+A
+        if (payType < 1)
+            document.write("請輸入1-5的整數數字");
+        if (payType > 5)
+            document.write("請輸入1-5的整數數字");
+ */
+        //js的邏輯運算子
+        //! :not
+        //&&:and
+        //||:or
+
+        if( payType<1   ||  payType>5)
+            document.write("請輸入1-5的整數數字");
+        else{
+
+            if (payType == 1)
+                document.write("信用卡付款");
+            if (payType == 2)
+                document.write("現金付款");
+            if (payType == 3)
+                document.write("轉帳付款");
+            if (payType == 4)
+                document.write("Line Pay");
+            if (payType == 5)
+                document.write("貨到付款");            
+        }
+
+        document.write("<hr>");
+
+        /////////////////////////////////////////////
+        //區分等第
+        //90分以上為優等，80-89分為甲等，70-79分為乙等
+        //60-69分為丙等，60分以下為丁等
+        
+        var score=60
+        if(score<0  ||  score >100){
+            document.write("請輸入0-100的數字");
+        }
+        else{
+            if(score>=90 && score<=100){
+                document.write("優等");
+            }
+            if(score>=80 && score<90){
+                document.write("甲等");
+            }    
+            if(score>=70 && score<80){
+                document.write("乙等");
+            }        
+            if(score>=60 && score<70){
+                document.write("丙等");
+            }       
+            if(score<60){     
+                document.write("丁等");
+            }
+        }
+        document.write("<hr>");
+
+        //多擇一
+        var score=70
+        if(score<0  ||  score >100){
+            document.write("請輸入0-100的數字");
+        }
+        else if(score>=90 && score<=100){
+            document.write("優等");
+        }
+        else if(score>=80 && score<90){
+            document.write("甲等");
+        }    
+        else if(score>=70 && score<80){
+            document.write("乙等");
+        }        
+        else if(score>=60 && score<70){
+            document.write("丙等");
+        }       
+        else if(score<60){     
+            document.write("丁等");
+        }
+        document.write("<hr>");
+
+        //多擇一的優化寫法
+        var score=90
+        if(score<0  ||  score >100){
+            document.write("請輸入0-100的數字");
+        }
+        else {
+            if(score>=90){
+            document.write("優等");
+            }
+            else if(score>=80){
+                document.write("甲等");
+            }    
+            else if(score>=70){
+                document.write("乙等");
+            }        
+            else if(score>=60){
+                document.write("丙等");
+            }       
+            else {     
+                document.write("丁等");
+            }
+        }
+        document.write("<hr>");
+
+    </script>
+
+</body>
+</html>
