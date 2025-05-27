@@ -53,33 +53,19 @@
 
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            <a class="nav-link dropdown-toggle" href="#" id="webDropdown" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
                                 Web
                             </a>
-                            <ul class="dropdown-menu" id="web-menu">
-                                <li><a class="dropdown-item" href="JavaScript/01Var.html">01Var</a></li>
-                                <li><a class="dropdown-item" href="JavaScript/02DataType.html">02DataType</a></li>
-                                <li><a class="dropdown-item" href="JavaScript/03Expression.html">03Expression</a></li>
-                                <li><a class="dropdown-item"
-                                        href="JavaScript/04FlowControl_if.html">04FlowControl_if</a></li>
-                                <li><a class="dropdown-item"
-                                        href="JavaScript/05FlowControl_switch.html">05FlowControl_switch</a></li>
-                                <li><a class="dropdown-item"
-                                        href="JavaScript/06FlowControl_for.html">06FlowControl_for</a></li>
-                                <li><a class="dropdown-item" href="JavaScript/07Practice.html">07Practice</a></li>
-                                <li><a class="dropdown-item" href="JavaScript/08Practice.html">08Practice</a></li>
-                                <li><a class="dropdown-item"
-                                        href="JavaScript/09FlowControl_while.html">09FlowControl_while</a></li>
-                                <li><a class="dropdown-item" href="JavaScript/10Array.html">10Array</a></li>
-                                <li><a class="dropdown-item" href="JavaScript/11Practice.html">11Practice</a></li>
-                                <li><a class="dropdown-item" href="JavaScript/12Function.html">12Function</a></li>
-                                <li><a class="dropdown-item" href="JavaScript/13Exsample.html">13Exsample</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="player.html">player</a></li>
+                            <ul class="dropdown-menu" aria-labelledby="webDropdown" id="web-menu">
+                                <!-- 動態產生選單項目 -->
                             </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="Web/" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Web!
+                            </a>
                         </li>
                     </ul>
                     <form class="d-flex" role="search">
@@ -96,30 +82,9 @@
     </div>
 
     <script>
-        // Web 資料夾檔案清單
-        const webFiles = [
-            { name: "01Var", file: "JavaScript/01Var.html" },
-            { name: "02DataType", file: "JavaScript/02DataType.html" },
-            { name: "03Expression", file: "JavaScript/03Expression.html" },
-            // ... 其餘 44 個 ...
-            { name: "47Something", file: "JavaScript/47Something.html" }
-        ];
-
-        // 動態產生 Web 下拉選單
-        const webMenu = document.getElementById('web-menu');
-        webFiles.forEach(item => {
-            const li = document.createElement('li');
-            const a = document.createElement('a');
-            a.className = 'dropdown-item';
-            a.href = item.file;
-            a.textContent = item.name;
-            li.appendChild(a);
-            webMenu.appendChild(li);
-        });
-
-        // 攔截 dropdown-item 的點擊事件
         document.addEventListener('DOMContentLoaded', function () {
-            document.querySelectorAll('.dropdown-item, .nav-link.dropdown-toggle').forEach(function (item) {
+            // 只攔截 dropdown-item
+            document.querySelectorAll('.dropdown-item').forEach(function (item) {
                 item.addEventListener('click', function (e) {
                     var href = this.getAttribute('href');
                     if (href && href !== '#') {
