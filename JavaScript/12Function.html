@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="執行功能1" onclick="Welcome()">
+    <input type="button" value="執行功能2" onclick="getLevelList()">
+    <input type="button" value="執行功能3" onclick="inputStudentNum()">
+
+    <script>
+        /* 
+        結構化程式設計
+        講解重點：將各功能函數化
+        */
+        function inputStudentNum() {
+            var num = prompt("請輸入要查詢第幾位學生的成績等第:")
+            getLevel(num);
+        }
+        /* 
+        功能 1 ：顯示歡迎光臨
+        */
+        function Welcome() {
+            document.write("歡迎光臨!!");
+        }
+
+        /* 
+        功能 2 ：取得等地列表
+        區分等第
+        90分以上為優等，80-89分為甲等，70-79分為乙等，60-69分為丙等，60分以下為丁等
+        輸出範例:
+        S001-王小明-優等
+        S002-王大明-甲等
+        S003-王中明-丁等
+        */
+        var arrStudentNo = ["S001", "S002", "S003", "S004", "S005", "S006", "S007", "S008", "S009", "S010"];
+        var arrStudentName = ["王小明", "王大明", "王中明", "王右明", "王左明", "王上明", "王下明", "張三", "李四", "王五"];
+        var arrStudentScore = [92, 87, 56, 68, 85, 83, 77, 71, 85, 93];
+        var arrLevels = ["丁等", "丁等", "丁等", "丁等", "丁等", "丁等", "丙等", "乙等", "甲等", "優等", "優等"];
+
+        function getLevelList() {
+            for (var i in arrStudentNo) {
+
+                getResult(i)
+
+            }
+        }
+
+        /* 
+        功能 3 ：取得某學生等地資料
+         */
+        function getLevel(i) {
+
+            i -= 1;
+            getResult(i)
+
+        }
+
+        var index = 0; level = "";
+
+        function getResult(i) {
+            index = parseInt(arrStudentScore[i] / 10);  /* 數值 index 為 arrStudentScore[] 定位 */
+            level = arrLevels[index];  /* 將取整後的數值帶入 arrLevels[] 並用 level3 字串輸出等第 */
+            document.write(`${arrStudentNo[i]}-${arrStudentName[i]}-${level}<br>`);
+        }
+
+        /* 主程式 */
+        /* Welcome();
+        document.write("<hr>");
+        getLevelList();
+        document.write("<hr>");
+        getLevel(4);
+        document.write("<hr>"); */
+
+
+    </script>
+</body>
+
+</html>
