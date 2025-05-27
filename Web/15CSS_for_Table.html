@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table style border="1" width="500"> <!-- html 的數據單位皆為 px -->
+
+        <tfoot> <!-- 表尾，就算寫在程式最上方也會顯示在表格最下方 -->
+            <tr>
+                <td colspan="3">製表人:小明</td> <!-- colspan 代表表格融合 -->
+
+        </tfoot>
+        <tbody> <!-- 不需特別撰寫，若無特別撰寫在 thead、tfoot 內的標籤則自動被放入 tbody -->
+
+            <tr>
+                <td>張三</td>
+                <td>88</td>
+                <td>95</td>
+
+            </tr>
+            <tr>
+                <td>李四</td>
+                <td>76</td>
+                <td>80</td>
+            </tr>
+            <tr>
+                <td>王五</td>
+                <td>78</td>
+                <td>91</td>
+            </tr>
+        </tbody>
+
+        <thead> <!-- 表頭，就算寫在程式下方也會顯示在表格的最上方 -->
+            <tr>
+                <td>姓名</td>
+                <td>國文</td>
+                <td>數學</td>
+
+            </tr>
+        </thead>
+
+        <caption> <!-- 寫在表格標籤內的程式碼，但顯示在表格外並置中於表格上方 -->
+            成績單
+        </caption>
+    </table>
+
+    <hr>
+
+    <table style="border: 2px solid black;width: 500px;">
+
+        <thead> <!-- 表頭，就算寫在程式下方也會顯示在表格的最上方 -->
+            <tr>
+                <td>姓名</td>
+                <td>國文</td>
+                <td>數學</td>
+
+            </tr>
+        </thead>
+        
+        <tbody> <!-- 不需特別撰寫，若無特別撰寫在 thead、tfoot 內的標籤則自動被放入 tbody -->
+
+            <tr>
+                <td style="border: 2px solid black;width: 300px;">張三</td>
+                <td style="border: 2px solid black;width: 300px;">88</td>
+                <td style="border: 2px solid black;width: 300px;">95</td>
+
+            </tr>
+            <tr>
+                <td style="border: 2px solid black;width: 300px;">李四</td>
+                <td style="border: 2px solid black;width: 300px;">76</td>
+                <td style="border: 2px solid black;width: 300px;">80</td>
+            </tr>
+            <tr>
+                <td style="border: 2px solid black;width: 300px;">王五</td>
+                <td style="border: 2px solid black;width: 300px;">78</td>
+                <td style="border: 2px solid black;width: 300px;">91</td>
+            </tr>
+        </tbody>
+
+        <caption> <!-- 寫在表格標籤內的程式碼，但顯示在表格外並置中於表格上方 -->
+            成績單
+        </caption>
+
+        <tfoot> <!-- 表尾，就算寫在程式最上方也會顯示在表格最下方 -->
+            <tr>
+                <td colspan="3">製表人:小明</td> <!-- colspan 代表表格融合 -->
+
+        </tfoot>
+    </table>
+
+
+</body>
+
+</html>

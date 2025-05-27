@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            margin: auto;
+            width: 1266px;
+            position: relative;
+            z-index: 100;/* 網頁顯示層級100 */
+        }
+
+        #container>section {
+            display: flex;
+            /* 將<section>標籤內要顯示的內容用此方式排列 */
+        }
+
+        #container>section>nav {
+            width: 209px;
+
+        }
+
+        #container>section>article {
+            width: 1057px;
+        }
+
+        #ad1 {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        #ad2 {
+            position: fixed;
+            top: 0;
+            right: 0;
+        }
+
+        #ad3 {
+            box-shadow: 0 0 10px black;
+            position: absolute;
+            top: 150px;
+            left: 106px;
+            z-index: 200;/* 網頁層級200，會顯示在此程式碼層及200以下的標籤之上 */
+        }
+
+        #ad3>span {
+            background-color: pink;
+            color: red;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .hide {
+            /* 類別選擇器，加入後隱藏該標籤及其內容 */
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="container">
+        <header>
+            <img src="CSS/top.jpg">
+        </header>
+        <section>
+            <nav>
+                <img src="CSS/left.jpg">
+            </nav>
+            <article>
+                <img src="CSS/right.jpg">
+            </article>
+        </section>
+        <footer>
+            <img src="CSS/bottom.jpg">
+        </footer>
+        <div id="ad3">
+            <span onclick="ad3Hidden()">點我關閉</span><br><!-- 呼叫JavaScript的funtion -->
+            <img src="CSS/ad.jpg">
+        </div>
+    </div>
+    <img src="CSS/banner1.jpg" id="ad1">
+    <img src="CSS/banner2.jpg" id="ad2">
+
+    <script>
+        function ad3Hidden() {
+            var ad3 = document.getElementById("ad3");
+            ad3.className = "hide";
+        }/* 執行按鈕"點我關閉"所需要的程式碼，執行".hide"類別選擇器 */
+
+    </script>
+</body>
+
+</html>

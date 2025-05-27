@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2 id="a">123</h2>
+
+    <script src="MyClass.js"></script>
+
+    <script>
+        let a = document.getElementById("a");
+
+        let John = new Male("John Lee", "123456", "高雄市", "aaa@test.com", "a.jpg");
+        a.innerText = `John.getInfo()= ${John.getInfo()}
+        John.getName()= ${John.getName()} 
+        John.getGender()= ${John.getGender()}`;
+    </script>
+
+</body>
+
+</html>

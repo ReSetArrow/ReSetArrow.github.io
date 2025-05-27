@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 變數的scope */
+
+        var a = 5, b = 0;
+        let x = 2, y = 0;
+        function cal() {
+            var c = a + b;
+            let z = x + y;
+            console.log("c=" + c);
+            console.log("z=" + z);
+        }
+        cal();
+        console.log("c=" + c);
+        console.log("z=" + z);
+
+        ////////////////////////////////////////
+
+        var d = [];
+        for (let i = 0; i < 10; i++) {
+            d[i] = i;
+        }
+
+        console.log(d[3]);
+        console.log(d);
+
+        ////////////////////////////////////////
+
+        var f = [];
+        for (let i = 0; i < 10; i++) {
+            f[i] = function () {
+                console.log(i);
+            }
+        }
+
+        console.log(f);
+        console.log(f());
+        f[2]();
+
+        ////////////////////////////////////////
+
+        let w = function () {
+            console.log(123);
+        }
+
+        w();
+
+        ////////////////////////////////////////
+
+        let q = [];
+        for (let i = 0; i < 10; i++) {
+            q[i] = function () {
+                console.log(i);
+            }
+        }
+        
+        q[0]();/* 0 */
+        q[1]();/* 1 */
+        q[2]();/* 2 */
+
+        ////////////////////////////////////////
+
+        /* for 迴圈內使用 var 宣告 i  */
+        let g = [];
+        for (var i = 0; i < 10; i++) {
+            g[i] = function () {
+                console.log(i);
+            }
+        }
+        
+        g[0]();/* 10 */
+        g[1]();/* 10 */
+        g[2]();/* 10 */
+
+
+
+</script>
+</body>
+
+</html>

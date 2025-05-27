@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="zh">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            #controlPanel span {
+                cursor: pointer;
+                font-family: webdings;
+                font-size: 2rem;
+                border: 2px solid black;
+                background-color: darkturquoise;
+            }
+
+            #controlPanel input {
+                margin: 5px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <audio id="audio" src="song/莫文蔚 Karen Mok & 伍佰 Wu Bai堅強的理由 Reason To Be Strong.mp3" controls></audio>
+        <hr>
+        <div id="controlPanel">
+            <select onchange="changeMusic(event)">
+                <option value="song/伍佰 & China Blue 愛妳越來越多.mp3.mp3">愛妳越來越多</option>
+                <option value="song/伍佰&China Blue 虧欠.mp3">虧欠</option>
+                <option value="song/告五人 Accusefive你要不要吃哈密瓜.mp3">你要不要吃哈密瓜</option>
+                <option value="song/楊乃文 Naiwen Yang一個人 One.mp3">一個人</option>
+                <option value="song/楊乃文 Naiwen Yang星星堆滿天 Stars.mp3">星星堆滿天</option>
+                <option value="song/王心凌 Cyndi Wang  大眠.mp3">大眠</option>
+                <option value="song/莫文蔚 Karen Mok & 伍佰 Wu Bai堅強的理由 Reason To Be Strong.mp3">堅強的理由</option>
+            </select>
+            <hr>
+            <span onclick="playMusic()">4</span>
+            <span onclick="stopMusic()">&lt;</span>
+            <span onclick="changeTime(-10)">7</span>
+            <span onclick="changeTime(10)">8</span>
+            <span onclick="setMute()">V</span>
+            <span onclick="">q</span>
+            <span onclick="">s</span>
+            <span onclick="">`</span>
+            <hr>
+            <input type="range" value="70" oninput="setVolumeByRangeBar()">
+            <input type="button" value="-" onclick="setVolume(-1)">
+            <input type="button" value="+" onclick="setVolume(1)">
+            <input type="text" id="txtVol" readonly>
+        </div>
+
+        <script>
+            const audio = document.getElementById("audio");
+            const funcBtn = document.querySelectorAll("#controlPanel span");
+            const VolumeBtn = document.querySelectorAll("#controlPanel input");
+
+            console.log(funcBtn, VolumeBtn);
+
+            const btnPlay = funcBtn[0];
+            const btnMuted = funcBtn[4];
+            const volRangeBar = VolumeBtn[0];
+            const txtVol = VolumeBtn[3];
+
+            /* 播放音樂 */
+            function playMusic() {
+                audio.play();
+                btnPlay.innerText = ";";
+                btnPlay.onclick = pauseMusic;
+            }
+
+            /* 暫停音樂 */
+            function pauseMusic() {
+                audio.pause();
+                btnPlay.innerText = "4";
+                btnPlay.onclick = playMusic;
+            }
+
+            /* 停止音樂 */
+            function stopMusic() {
+                audio.currentTime = 0;
+                pauseMusic();
+            }
+
+            /* 音樂快轉或倒轉 */
+            function changeTime(s) {
+                audio.currentTime += s;
+            }
+
+            /* 設定為靜音 */
+            function setMute() {
+                audio.muted = !audio.muted;
+            }
+
+            /* 初始音量 */
+            setVolumeByRangeBar();
+
+            /* 音量調整 */
+            function setVolumeByRangeBar() {
+                audio.volume = volRangeBar.value / 100;
+                txtVol.value = volRangeBar.value;
+            }
+
+            function setVolume(n) {
+                volRangeBar.value = parseInt(volRangeBar.value) + n;
+                setVolumeByRangeBar();
+            }
+
+            /* 切換歌曲 */
+            function changeMusic(evt) {
+                let musicList = evt.target;
+                let i = musicList.selectedIndex;
+                audio.src = musicList.children[i].value;
+
+                if (btnPlay.innerText == ";") {
+                    playMusic();
+                }
+            }
+        </script>
+    </body>
+
+    </html>
+
+</body>
+
+</html>

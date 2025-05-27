@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id=""></h1>
+    <script>
+        let getNowTime = () => {
+            timer.innerText = timeFormat(new Date());
+            setTimeout(getNowTime, 1000);
+
+        }
+
+        /*
+        一般宣告 function 可以這樣寫
+        let timeFormat = myDate => {
+            let hour = myDate.getHour() < 10 ? "0" + myDate.getHour() : myDate.getHour();
+            let min = myDate.getMinutes() < 10 ? "0" + myDate.getMinutes() : myDate.getMinutes();
+            let sec = myDate.getSecond() < 10 ? "0" + myDate.getSecond() : myDate.getSecond();
+            let time = hour + ":" + min + ":" + sec;
+            return time;
+        }
+        getNowTime();
+        或用 prototype 方式以下列方式撰寫
+        */
+        ///////////////////////////////////////////////////////
+
+        let myDate = new Date();
+        Date.prototype.timeFormat = function () {
+            let hour = myDate.getHour() < 10 ? "0" + myDate.getHour() : myDate.getHour();
+            let min = myDate.getMinutes() < 10 ? "0" + myDate.getMinutes() : myDate.getMinutes();
+            let sec = myDate.getSecond() < 10 ? "0" + myDate.getSecond() : myDate.getSecond();
+            let time = hour + ":" + min + ":" + sec;
+            return time;
+        }
+        console.log(myDate.timeFormat());
+    </script>
+</body>
+
+</html>

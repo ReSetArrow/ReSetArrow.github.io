@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Welcome My Homepage!!</h1>
+    <h1 style="text-decoration: overline;">Welcome My Homepage!!</h1>
+    <h1 style="text-decoration: underline;">Welcome My Homepage!!</h1>
+    <h1 style="text-decoration: line-through;">Welcome My Homepage!!</h1>
+    <hr>
+
+    <h1 style="text-decoration: none;">Welcome My Homepage!!</h1>
+
+    <u style="text-decoration: none;">Welcome My Homepage!!</u>
+    <hr>
+    <a href=""
+        style="text-decoration: none;font-size: 2rem;font-weight: 900;color: black;cursor: text;display: block;margin-bottom: 16px;">
+        Welcome My Homepage!!</a>
+    <span>aaaaa</span>
+    <hr>
+
+    <!-- webdings 字型可以當成 icon 使用 -->
+    <a href=""
+        style="font-family: webdings;font-size: 5rem;text-decoration: none;color: darkorange;border: 3px solid darkorange;box-shadow: 5px 5px 10px black;border-radius: 10px;">a</a>
+
+    <hr style="width: 500px;background-color: red;height: 100px;">
+
+    <div style="border: 1px solid black;">這是測試</div>
+    <div style="border: 1px solid black;text-align: center;">這是測試</div>
+    <div style="border: 1px solid black;text-align: right;">這是測試</div>
+
+    <hr>
+    <div style="height: 200px;background-color:rgb(10, 127, 33) ;">
+
+    </div>
+    <div style="height: 200px;background-color:#E49AAC;"></div>
+    <hr>
+    <input type="button" value="小" id="btn1">
+    <input type="button" value="中" id="btn2">
+    <input type="button" value="大" id="btn3">
+    <input type="button" value="背景色" id="btn4">
+
+    <div id="news">Java parseInt() 方法 ... parseInt() 方法用于将字符串参数作为有符号的十进制整数进行解析。 如果方法有两个参数， 使用第二个参数指定的基数，将字符串参数解析为有符号的
+        ...</div>
+
+    <script>
+        var btn1 = document.getElementById("btn1");
+        var btn2 = document.getElementById("btn2");
+        var btn3 = document.getElementById("btn3");
+        var btn4 = document.getElementById("btn4");
+        var news = document.getElementById("news");
+
+        btn1.addEventListener('click', function () {
+            news.style.fontSize = "1rem";
+        })
+
+        btn2.addEventListener('click', function () {
+            news.style.fontSize = "1.5rem";
+        })
+
+        btn3.addEventListener('click', function () {
+            news.style.fontSize = "2rem";
+        })
+        /* 設定預設的背景顏色 */
+        var defaultColor = "#ffffff";
+        btn4.addEventListener('click', function () {
+            if (news.style.backgroundColor === "red") {
+                news.style.backgroundColor = defaultColor;
+            } else {
+                news.style.backgroundColor = "red";
+            }
+        })
+    </script>
+</body>
+
+</html>

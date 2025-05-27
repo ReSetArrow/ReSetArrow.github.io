@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+
+    <style>
+        /* 選擇器，指定物件套用 CSS 未選擇的無作用
+    CSS 基底的三種選擇器
+
+    1.Tag Selector (標籤選擇器)
+    2.Class Selector (類別選擇器) 若有複數 Class 則重複的條件則以最後的 Class 條件為主
+    3.ID Selector (ID選擇器) 例如:<input type="button" value="小" id="btn1">，其中"id:"在同一程式中不能重複 
+    */
+        h1 {
+            color: red;
+            background-color: yellow;
+        }
+
+        .h1 {
+            background-color: pink;
+        }
+
+        .a {
+            color: green;
+            font-size: 3rem;
+        }
+
+        #b {
+            border: 5px dotted blue;
+        }
+
+        #c {
+            border-radius: 20px;
+            border: 2px solid black;
+            color: blue;
+            background-color: azure;
+        }
+
+        .d {
+            background-color: greenyellow;
+            color: chocolate;
+            font-size: 4rem;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1 class="h1 d" id="c" style="color: gold;">Welcome My Homepage!!</h1>
+    <!-- CSS的 h1 class id 全部會套用，且優先權 id > class > h1，上述若有下條件(style="color:gold;")則絕對優先-->
+    <h2 class="a d">Welcome My Homepage!!</h2>
+    <h1 class="a">Welcome My Homepage!!</h1>
+    <p class="a">Welcome My Homepage!!</p1>
+    <h1 class="h1">Welcome My Homepage!!</h1>
+    <p class="h1">Welcome My Homepage!!</p>
+    <h1 id="b">Welcome My Homepage!!</h1>
+    <h1>Welcome My Homepage!!</h1>
+    <h1>Welcome My Homepage!!</h1>
+    <h1>Welcome My Homepage!!</h1>
+    <h1>Welcome My Homepage!!</h1>
+    <h1>Welcome My Homepage!!</h1>
+    <h1>Welcome My Homepage!!</h1>
+    <h1>Welcome My Homepage!!</h1>
+    <h1>Welcome My Homepage!!</h1>
+    <h1>Welcome My Homepage!!</h1>
+    <h1 class="a">Welcome My Homepage!!</h1>
+
+</body>
+
+</html>

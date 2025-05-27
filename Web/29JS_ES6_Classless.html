@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h2 id="timer"></h2>
+    <!-- 在網頁上顯示，先宣告一個 id 並在 <script> 標籤中宣告 const timer = document.getElementById("timer"); -->
+    <h1 id="clock"></h1>
+    <!-- 用於僅顯示時間的功能，原理同上 -->
+    <script>
+
+        const timer = document.getElementById("timer");/* 利用 const 宣告 HTML 內 id="timer" 的程式 = timer */
+        const clock = document.getElementById("clock");
+
+        /* 將程式使用 function 包裝起來 */
+        /* Classless */
+        function timeFormat(myDate) {
+
+            let hour = myDate.getHours() < 10 ? "0" + myDate.getHours() : myDate.getHours();
+            /* 顯示的時間若小於 10 則增加 "0" 字串於 myDate.getHours() 前方 EX:01 */
+            let min = myDate.getMinutes() < 10 ? "0" + myDate.getMinutes() : myDate.getMinutes();
+            let sec = myDate.getSeconds() < 10 ? "0" + myDate.getSeconds() : myDate.getSeconds();
+
+            let time = hour + ":" + min + ":" + sec;
+            return time;
+            /* 處理時鐘用的 function ，亦可作用於完整時機的程式碼*/
+
+        }
+
+        function dateFormat(myDate) {
+
+            let weekday = ["日", "一", "二", "三", "四", "五", "六"]
+
+            let date = myDate.getFullYear() + "(民國" + (myDate.getFullYear() - 1911) + ")年" + (myDate.getMonth() + 1) + "月" + myDate.getDate() + "日星期" + weekday[myDate.getDay()];
+            return date;
+        }
+
+        let myDate = new Date();/* 用設計圖鑄造出物件 */
+        let dateResult = dateFormat(myDate);/* 亦可將 function 再帶入新的變數 */
+
+        function getNowTime() {
+            /*
+            let myDate = new Date();
+            重複使用的宣告語句，移出 function 做使用
+            */
+            /*
+            建構子的程式語句
+            代表使用 new Date() 鑄造一個新物件，並帶入 myDate 物件
+            */
+
+            console.log(myDate.getDate());
+            console.log(myDate.getDay());
+            console.log(myDate.getTime());
+            console.log(myDate.getFullYear());
+
+            /*
+            let nowTime = myDate.getFullYear() + "年(民國" + (myDate.getFullYear() - 1911) + ")年" + (myDate.getMonth() + 1) + "月" + myDate.getDate() + "日星期" + weekday[myDate.getDay()] + myDate.getHours() + ":" + myDate.getMinutes() + ":" + myDate.getSeconds();
+            console.log(nowTime);
+            */
+            /* 上述完整計算民國年要-1911，月份計算從0開始，故計算方式要+1，星期可以用宣告陣列方式判斷 */
+
+            /*
+            因上述程式碼較為冗長，故可用下列程式碼再將時間簡化成 time ，以及 date
+            let hour = myDate.getHours() < 10 ? "0" + myDate.getHours() : myDate.getHours();
+            let min = myDate.getMinutes() < 10 ? "0" + myDate.getMinutes() : myDate.getMinutes();
+            let sec = myDate.getSeconds() < 10 ? "0" + myDate.getSeconds() : myDate.getSeconds();
+
+            let time = hour + ":" + min + ":" + sec;
+            將完成的方式利用額外的 function timeFormat(myDate) { return time; } 外部重新宣告一次
+            前半日期程式碼同樣宣告 function dateFormat(myDate) { return date; } 外部重新宣告一次
+            */
+
+
+            timer.innerText = dateResult + timeFormat(new Date());
+            /* 利用 script 程式內容顯示在 HTML ， timeFormat(new Date())，而非 myDate */
+
+            setTimeout(getNowTime, 100);/* 計數器將 function(getNowTime){} 以 0.1 秒為單位刷新 */
+        }
+
+        function getNowClock() {
+            clock.innerText = timeFormat(new Date());
+            setTimeout(getNowClock, 1000);
+        }
+
+
+        getNowTime();
+        getNowClock();
+
+        /*
+        完整解析：
+        首先在 <script> 外利用 HTML 文字標籤定義 id(唯一性) 讓最後的顯示內容編輯的程式有一個目標
+        <script> 標籤內 let myDate = new Date(); 讓計算時間表示方式的程式碼 function(dateFormat、timeFormat) 代入
+        經過上方的 function 計算後再讓整合在用於輸出的 function(getNowTime、getNowClock) 利用程式碼輸出在 HTML 上
+        最後編輯完所有 function 後呼叫要執行的 function(getNowTime、getNowClock)
+        */
+    </script>
+</body>
+
+</html>

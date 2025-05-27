@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        /*  let myDate = new Date();  classless 沒有類別的物件形式 */
+
+        let Person = function (name, gender, age) {
+            /* 屬性property */
+            this.name = name;/* Person的name 屬性 = name 參數值 */
+            this.gender = gender;
+            this.age = age
+
+            /* 方法Method */
+            this.getName = function () {
+                return this.name;
+            }
+
+            this.getGender = function () {
+                return this.gender;
+            }
+
+            this.getPerson = function () {
+                return this.name + "-" + this.gender;
+            }
+            this.getAge = function () {
+                return this.age;
+            }
+        }
+
+        let jack = new Person("Jack", "Male", 20);
+        console.log(jack.getName());
+        console.log(jack.getGender());
+        console.log(jack.getPerson());
+        console.log(jack.getAge());
+        console.log(jack.name);
+
+        /* jack.name="John"; */
+        jack.name = "John";
+        jack.gender = "Female";
+        jack.age = 18;
+        console.log(jack.getName());
+        console.log(jack.getGender());
+        console.log(jack.getPerson());
+        console.log(jack.getAge());
+        console.log(jack.name);
+
+        ///////////////////////////////////////////////////////////////////////////////////
+        console.log("///////////////////////////////////////////////////////////////////////////////////");
+
+        class People {
+            #Name;/* # 符號代表private */
+            #Email;
+            /* 建構子 */
+            constructor(name, tel, addr, email) {
+                this.#Name = name;
+                this.Tel = tel;
+                this.Address = addr;
+                this.#Email = email;
+            }
+
+            /* 屬性封裝 */
+            get Email() {
+                return this.#Email;
+            }
+
+            getName() {
+                return this.#Name;
+            }
+
+            setName(name) {
+                if (name != "")
+                    this.#Name = name;
+            }
+
+            /* 透過方法取email的值 */
+            getEmail() {
+                return this.#Email;
+            }
+
+            getInfo() {
+                return this.#Name + "-" + this.Tel + "-" + this.Address + "-" + this.#Email;
+            }
+        }
+
+        class Male extends People {
+            constructor(name, tel, addr, email, photo) {
+                super(name, tel, addr, email);
+                this.Photo = photo;
+            }
+
+            getGender() {
+                return "男生"
+            }
+        }
+        class Female extends People {
+            constructor(name, tel, addr, email) {
+                super(name, tel, addr, email);
+            }
+
+            getGender() {
+                return "女生"
+            }
+            forFemaleMethod() {
+                return "這是專屬女生的方法"
+            }
+        }
+
+
+        let John = new Male("John Lee", "123456", "高雄市", "aaa@test.com", "a.jpg");
+        John.Email = "123456789";
+        console.log(John.getName());
+        console.log(John.getInfo());
+        console.log(John.setName("abc"));
+        console.log(John.getName());
+        console.log(John.getGender());
+        console.log(John.getInfo());
+
+    </script>
+</body>
+
+</html>

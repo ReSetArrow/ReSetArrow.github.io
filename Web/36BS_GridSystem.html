@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>GridSystem</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <h3>基本使用</h3>
+        <h4>1列row=col-12</h4>
+        <div class="row">
+            <div class="col-4 bg-danger">col-1(4)</div>
+            <div class="col-4 bg-info">col-2(4)</div>
+            <div class="col-4 bg-warning">col-3(4)</div>
+        </div>
+        <hr>
+        <h4>若超出12，會直接換行</h4>
+        <div class="row">
+            <div class="col-3 bg-danger">col-1(3)</div>
+            <div class="col-3 bg-info">col-2(3)</div>
+            <div class="col-3 bg-warning">col-3(3)</div>
+            <div class="col-4 bg-warning">col-4(4)</div>
+            <hr>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-2 bg-danger">col-1(2)</div>
+            <div class="col-4 bg-info">col-2(4)</div>
+            <div class="col-6 bg-warning">col-3(6)</div>
+        </div>
+        <hr>
+        <h4>沒有設定的情況</h4>
+        <div class="row">
+            <div class="col bg-danger">col-1(無設定)</div>
+            <div class="col bg-info">col-2(無設定)</div>
+            <div class="col bg-warning">col-3(無設定)</div>
+            <div class="col bg-danger">col-4(無設定)</div>
+            <div class="col bg-info">col-5(無設定)</div>
+            <div class="col bg-warning">col-6(無設定)</div>
+            <div class="col bg-danger">col-7(無設定)</div>
+        </div>
+        <hr>
+        <h4>斷點</h4>
+        <div class="row">
+            <div class="col-md-3 col-x1 bg-danger">col-1(3)</div>
+            <div class="col-md-3 col-x1 bg-info">col-2(3)</div>
+            <div class="col-md-3 col-x1 bg-warning">col-3(3)</div>
+            <div class="col-md-3 col-x1 bg-danger">col-4(3)</div>
+        </div>
+        <hr>
+        <h4>同列多欄</h4>
+        <div class="row">
+            <div class="bg-danger col-6 ">col-1(6)</div>
+            <div class="bg-info col-5 ">col-2(5)</div>
+            <div class="bg-warning col-4">col-3(4)</div>
+            <div class="bg-warning col-10">col-4(10)</div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="bg-success col">col-1(無設定)</div>
+            <div class="bg-secondary col">col-2(無設定)</div>
+            <div class="bg-primary w-50">col-3(w-50)</div>
+            <div class="bg-info w-100">w-100表一整列，百分比的意思</div>
+            <div class="bg-danger col">col-4(無設定)</div>
+            <div class="bg-warning col">col-5(無設定)</div>
+        </div>
+        <hr>
+        <h4>列斷點(BS 5才有)</h4>
+        <h4>row row-cols-2(一列分兩份)</h4>
+        <div class="row row-cols-2">
+            <div class="bg-danger">col-1</div>
+            <div class="bg-info ">col-2</div>
+            <div class="bg-warning ">col-3</div>
+            <div class="bg-dark">col-4</div>
+        </div>
+        <hr>
+        <h4>row row-cols-3(一列分三份)</h4>
+        <div class="row row-cols-3">
+            <div class="bg-danger">col-1</div>
+            <div class="bg-info ">col-2</div>
+            <div class="bg-warning ">col-3</div>
+            <div class="bg-dark">col-4</div>
+        </div>
+        <hr>
+        <h4>row-cols-auto</h4>
+        <div class="row row-cols-auto">
+            <div class="bg-danger">col-1</div>
+            <div class="bg-info ">col-2</div>
+            <div class="bg-warning ">col-3</div>
+            <div class="bg-dark">col-4</div>
+            <div class="bg-info ">y</div>
+            <div class="bg-warning ">sebtesrbtrsebtsetee根據字的長度自動判斷是否需要獨立一行ui,myfnjhf</div>
+        </div>
+        <hr>
+        <h4>row row-cols-lg-3(lg的情況下分3份)</h4>
+        <div class="row row-cols-lg-3">
+            <div class="bg-danger">col-1</div>
+            <div class="bg-info ">col-2</div>
+            <div class="bg-warning ">col-3</div>
+            <div class="bg-dark">col-4</div>
+        </div>
+        <hr>
+    </div>
+</body>
+
+</html>

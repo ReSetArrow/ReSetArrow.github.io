@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #table1 {
+            border: 5px double black;
+            margin: auto;
+        }
+
+        #table1 tr {
+            background-color: rgb(22, 216, 151);
+            text-align: center;
+        }
+
+        #table1 tr:nth-child(2n) {
+            background-color: rgb(11, 145, 155);
+        }
+
+        #table1 tr:hover {
+            background-color: red;
+            font-size: 1.2rem;
+            font-weight: 900;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <table id="table1">
+
+
+    </table>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+
+
+        $.ajax({
+            type: 'get',
+            url: 'https://data.moa.gov.tw/Service/OpenData/ODwsv/ODwsvAttractions.aspx',
+            success: function (data) {
+                var item = "";
+                for (var i = 0; i < data.length; i++) {
+                    item = `<tr>
+                                                <td>${data[i].Name}</td>
+                                                <td>${data[i].Tel}</td>
+                                                <td>${data[i].City}${data[i].Town}</td>
+                                                <td>${data[i].Address}</td>
+                                                <td><img src="${data[i].Photo}" width="150" /></td>
+                                            </tr>`;
+                    $('#table1').append(item);
+                }
+            }
+
+        });
+
+    </script>
+</body>
+
+</html>

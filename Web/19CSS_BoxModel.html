@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1,
+        p,
+        div,
+        span,
+        u {
+            border: 2px solid black;
+        }
+
+        /* 使<h1>,<p>,<div>,<span>,<u>輸出時加上邊框線屬性 */
+
+        h1 {
+            margin: 50px;
+        }
+
+        /* 使<h1>輸出時加上與各自物件距離50px */
+
+        p {
+            margin: 100px;
+        }
+
+        /* 使<p>輸出時加上與各自物件距離100px，與物件(此例為<h1>)相鄰且各自有margin屬性時，以最大值為主而非相加顯示 */
+
+        h1,
+        span {
+            padding: 20px;
+        }
+
+        /* 使<h1><span>輸出時加上邊框距離20px屬性 */
+
+        u {
+            padding-top: 30px;
+            padding-bottom: 10px;
+            padding-right: 500px;/* <u>右側無限延伸，故此例無法正常作用 */
+            padding-left: 200px;
+            margin-top: 500px;
+            margin-left: 200px;
+            display: block;
+        }
+
+        /* 使<u>輸出時加上邊框各自不同距離，如標籤無block屬性，為使margin-top正常顯示，需額外加上display:block屬性 */
+
+        div {
+            background-color: yellow;
+        }
+
+        /* 使<div>輸出時加上背景色(黃色) */
+    </style>
+</head>
+
+<body>
+    <h1>aaaaaaaaaaaaaaaaaaaaaaaah1</h1>
+    <p>aaaaaaaaaaaaaaaaaaaaaaaap</p>
+    <div>aaaaaaaaaaaaaaaaaaaaaaaadiv</div>
+    <div>aaaaaaaaaaaaaaaaaaaaaaaadiv</div>
+    <div>aaaaaaaaaaaaaaaaaaaaaaaadiv</div>
+    <div>aaaaaaaaaaaaaaaaaaaaaaaadiv</div>
+    <div>aaaaaaaaaaaaaaaaaaaaaaaadiv</div>
+    <div>aaaaaaaaaaaaaaaaaaaaaaaadiv</div>
+    <span>aaaaaaaaaaaaaaaaaaaaaaaaspan</span><u>aaaau</u>
+
+
+
+</body>
+
+</html>

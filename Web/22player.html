@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音樂播放器</title>
+    <style>
+        #controlPanel {
+            border: 100px solid rgb(59, 189, 87);
+        }
+
+        #controlPanel span {
+            cursor: pointer;
+            font-family: webdings;
+            font-size: 2rem;
+            border: 2px solid black;
+            background-color: darkturquoise;
+        }
+
+        #controlPanel input {
+            border: 1px solid black;
+            margin: 5px;
+        }
+
+        #controlPanel select {
+            border: 1px solid black;
+            font-size: 1.5rem;
+        }
+
+        div,
+        p,
+        select,
+        input,
+        span {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <audio id="audio" src="song/伍佰 & China Blue 愛妳越來越多.mp3" title="愛妳越來越多" controls onended="musicStatus()"></audio>
+
+
+    <div id="controlPanel"><!-- 用<div>將<span>所套用的CSS與其他標籤區隔 -->
+        <select onchange="changeMusic(0)"><!-- 下拉式選單物件標籤 -->
+            <option value="song/伍佰 & China Blue 愛妳越來越多.mp3.mp3">愛妳越來越多</option>
+            <option value="song/伍佰&China Blue 虧欠.mp3">虧欠</option>
+            <option value="song/告五人 Accusefive你要不要吃哈密瓜.mp3">你要不要吃哈密瓜</option>
+            <option value="song/楊乃文 Naiwen Yang一個人 One.mp3">一個人</option>
+            <option value="song/楊乃文 Naiwen Yang星星堆滿天 Stars.mp3">星星堆滿天</option>
+            <option value="song/王心凌 Cyndi Wang  大眠.mp3">大眠</option>
+            <option value="song/莫文蔚 Karen Mok & 伍佰 Wu Bai堅強的理由 Reason To Be Strong.mp3">堅強的理由</option>
+        </select>
+        <hr>
+        <span onclick="playMusic()">4</span><!-- 播放暫停音樂 -->
+        <!-- <span onclick="pauseMusic()" id="btnPause">暫停音樂</span> -->
+        <span onclick="stopMusic()">&lt;</span><!-- 停止音樂 -->
+        <span onclick="changeMusic(-1)">9</span><!-- 前一首歌 -->
+        <span onclick="changeTime(-10)">7</span><!-- 倒轉10秒 -->
+        <span onclick="changeTime(10)">8</span><!-- 快轉10秒 -->
+        <span onclick="changeMusic(1)">:</span><!-- 後一首歌 -->
+        <span onclick="setMute()">V</span><!-- 靜音 -->
+        <span onclick="">q</span>
+        <span onclick="">s</span>
+        <span onclick="">`</span>
+        <hr>
+        <input type="range" value="50" oninput="setVolumeByRangeBar()"><!-- 初始音量設定 50 -->
+        <input type="button" value="-" onclick="setVolume(-1)"><!-- 音量 -1 -->
+        <input type="button" value="+" onclick="setVolume(1)"><!-- 音量 +1 -->
+        <input type="text" id="txtVol" readonly><!-- 音量的 text 框設定為唯獨，避免修改造成的異常 -->
+        <input type="range" value="0" oninput="setProgress()">
+        <hr>
+        <p>播放進度</p>
+        <p>00:00 / 00:00</p>
+        <p>音樂播放器</p>
+        <p>一般播放</p>
+    </div>
+    <script>
+        /* var 是變數， const 是常數，宣告後不給變更，所以用 const 宣告 */
+
+        const audio = document.getElementById("audio");/* 抓取 HTML 的 audio 標籤在 JS 中宣告成 audio 以便後續程式辨識 */
+        const controlPanel = document.getElementById("controlPanel");/* 抓取 HTML 的 controlPanel 標籤在 JS 中宣告成 controlPanel 以便後續程式辨識 */
+
+        const funcBtn = controlPanel.getElementsByTagName("span");/* 抓取 HTML 的 span 標籤在 JS 中宣告成 funcBtn 以便後續程式辨識 */
+        const volumeBtn = controlPanel.getElementsByTagName("input");/* 抓取 HTML 的 input 標籤在 JS 中宣告成 volumeBtn 以便後續程式辨識，宣告後可理解成 <span> 等於歌曲按鈕， <input> 等於音量按鈕 */
+        const musicList = controlPanel.getElementsByTagName("select")[0];/* 抓取 select (下拉式選單)，並宣告成 musicList */
+        const infoPanel = controlPanel.getElementsByTagName("p");
+
+        /* console 用於偵錯，撰寫時利用網頁閱讀 HTML 的標籤順序並以此宣告 JS 變數，美化 HTML */
+        console.log(controlPanel);
+        console.log(funcBtn, volumeBtn, infoPanel);
+
+        /*  const btnPlay = document.getElementById("btnPlay");
+        const btnMuted = document.getElementById("btnMuted");
+         const texVol = document.getElementById("txtVol"); */
+        /* 將上方做法(各自命名 id )更改成利用標籤編號讀取並各自宣告 */
+        const btnPlay = funcBtn[0];/* funcBtn[0]，也就是第1個歌曲按鈕功能在 JS 中宣告為 btnPlay */
+        const btnMuted = funcBtn[6];/* funcBtn[6]，也就是第7個歌曲按鈕功能在 JS 中宣告為 btnMuted */
+
+        const volRangeBar = volumeBtn[0];/* volumeBtn[0]，也就是第1個音量按鈕功能在 JS 中宣告為 volRangeBar */
+        const txtVol = volumeBtn[3];/* volumeBtn[3]，也就是第4個音量按鈕功能在 JS 中宣告為 txtVol */
+
+        /* txtVol, volume = audio.volume * 100; */
+        const currentTime = infoPanel[1];
+        const progressBar = input[4];
+
+
+        /* 播放音樂 */
+        function playMusic() {
+
+            audio.play();
+            btnPlay.innerText = ";";/* 改變外觀 */
+            btnPlay.onclick = pauseMusic;
+            infoPanel[2].innerText = "正在播放：[ " + audio.title + " ]...";
+
+            setInterval(() => getMusicTime(), 500);
+
+        }
+
+        /* 暫停音樂 */
+        function pauseMusic() {
+
+            audio.pause();
+            btnPlay.innerText = "4";/* 改變外觀 */
+            btnPlay.onclick = playMusic;
+            infoPanel[2].innerText = "音樂暫停中...";
+
+        }
+
+        /* 停止音樂 */
+        function stopMusic() {
+            audio.currentTime = 0;/* 時間歸零 */
+            pauseMusic()/* 完成暫停音樂 */
+            infoPanel[2].innerText = "音樂停止";
+            /* audio.pause(); 1.音樂停下來
+            btnPlay.innerText = "播放音樂";
+            btnPlay.onclick = playMusic; */
+        }
+
+        /* 音樂快轉或倒轉 */
+        function changeTime(s) {
+            /* 用單一"function"整合兩個更改時間的功能 */
+            audio.currentTime += s;
+            /* 音樂倒轉 */
+            /* /* function prevTime() {
+                audio.currentTime -= 10;
+            } */
+
+            /* 音樂快轉 */
+            /* function nextTime() {
+                audio.currentTime += 10;
+            } */
+        }
+
+        /* 設定為靜音 */
+        function setMute() {
+            /* 用 if 判斷 function 是否靜音，執行反相行為 */
+            /* function setMute() {
+                if (audio.muted) {
+                    audio.muted = false;
+                }
+                else {
+                    audio.muted = true;
+                }
+            } */
+            /* 用兩個 function 分別判斷兩個音量狀態並分別執行相反行為 */
+            /* function clearMute() {
+                audio.Muted = false;
+                btnMuted.onclick = setMute;
+            }
+            function setMute() {
+                audio.Muted = true;
+                btnMuted.onclick = clearMute;
+            } */
+            /* 用單一 function 執行靜音功能(布林值) */
+            audio.muted = !audio.muted;
+        }
+
+        /* 初始音量 */
+        setVolumeByRangeBar();
+
+        /* 音量調整 */
+        function setVolumeByRangeBar() {
+            audio.volume = volRangeBar.value / 100;
+            txtVol.value = volRangeBar.value
+        }
+        function setVolume(n) {
+            /* setVolume(0);
+            function setVolume(n) {
+                audio.volume = (audio.volume * 100 + n) / 100;
+                音量100在程式內為1，要除100才能正常增減
+                txtVol.value = audio.volume * 100;
+            } */
+            volRangeBar.value = parseInt(volRangeBar.value) + n;
+            setVolumeByRangeBar();
+        }
+
+
+        /* 切換歌曲 */
+        function changeMusic(n) {
+            /* console.log(evt.target.selectedIndex); */
+            /* let musicList = evt.target; */
+            let i = musicList.selectedIndex;/* 抓使用者選到的選項索引值(選取歌曲) */
+            audio.src = musicList.children[i + n].value;/* 抓使用者選到的選項value屬值 */
+            audio.title = musicList.children[i + n].innerText;
+            musicList.children[i + n].selected = true;
+
+            if (btnPlay.innerText == ";")
+                playMusic();
+        }
+
+        /* 判斷歌曲播畢要做什麼事 */
+        function musicStatus() {
+            /* musicList.length 用於找出歌曲清單長度 */
+            if (musicList.length == musicList.selectedIndex + 1) {/* 先判斷是否為最後一首歌 */
+                stopMusic();
+            } else {/* 不是最後一首就播下一首 */
+                changeMusic(1);
+            }
+        }
+
+        /* 取得時間格式 */
+        function getTimeFormat(t) {
+            let m = parseInt(t / 60);
+            let s = parseInt(t % 60);
+
+            /* 帶入變數 = 若 變數 "小於" 10 ，則 "0" + 變數，若非前述狀況則 變數; */
+            m = m < 10 ? "0" + m : m;
+            s = s < 10 ? "0" + s : s;
+
+            return m + ":" + s;
+        }
+
+        function getMusicTime() {
+            infoPanel[1].innerText = getTimeFormat(audio.currentTime) + "/" + getTimeFormat(audio.duration);
+        }
+
+
+        console.log();
+    </script>
+
+</body>
+
+</html>

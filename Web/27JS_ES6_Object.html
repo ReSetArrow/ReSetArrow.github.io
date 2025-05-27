@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        部門代碼    部門名稱
+            01      資訊部
+            02      管理部
+            03      行銷部
+            04      企劃部
+            05      人事處
+            06      研發處
+        */
+
+        /*
+        var deptNo = ["01", "02", "03", "04", "05", "06"];
+        var deptName = ["資訊部", "管理部", "行銷部", "企劃部", "人事處", "研發處"]; 
+        */
+        /* JS ES6物件宣告方式 */
+        let department = {
+            /* 屬性 */
+            deptID: "01",
+            deptName: "資訊部",
+        };
+
+        console.log(department);
+        console.log(department.deptName);
+        console.log(department.deptID + department.deptName);
+
+        let department1 = [
+            { dept1ID: "01", dept1Name: "資訊部" },
+            { dept1ID: "02", dept1Name: "管理部" },
+            { dept1ID: "03", dept1Name: "行銷部" },
+            { dept1ID: "04", dept1Name: "企劃部" },
+            { dept1ID: "05", dept1Name: "人事處" },
+            { dept1ID: "06", dept1Name: "研發處" },
+        ];/* 用逗號將所有陣列一行一行隔開，在閱讀程式時較整潔 */
+        console.log(department1);/* Console內會顯示Array陣列 */
+        console.log(department1[4]);/* Console內會顯示Object */
+        console.log(department1[4].dept1ID + department1[4].dept1Name);/* Console內會直接顯示指定資料 */
+
+        for (let i = 0; i < department1.length; i++)/* 用迴圈方式在Console內顯示所有陣列資料 */
+            console.log(department1[i].dept1ID + department1[i].dept1Name);
+
+        /////////////////////////////////////////////////////////
+
+        /* 物件的成員:屬性(property)及方法(method) */
+
+        let Jack = {
+            /* 屬性(property) */
+            sid: "S001",
+            name: "Jack",
+            email: "Jack@abc.com",
+            score: {
+                chinese: 85,
+                english: 80,
+                math: 78
+            },
+            /* 方法(method) */
+            /* 不直接呼叫屬性，而是轉換為方法，提升程式的彈性，EX : Mary 的 email 欄位未填寫，直接輸出為空，轉換方法則可以增加判斷式 */
+            getTotalScore() {
+                return this.score.chinese + this.score.english + this.score.math;
+            },
+            getStudentSid() {
+                return this.sid;
+            },
+            getEmail() {
+                /*
+                if (this.email == "") {
+                    return "未填寫"
+                }
+                return this.email;
+                或可簡化成下方判斷的程式碼
+                */
+                let email = this.email == "" ? "未填寫" : this.email;
+                return email;
+                /* 判斷式將 this.email 值 帶入到 email 屬性，當內容為空，輸出"未填寫"，否則輸出 this.email 的值，最後 return email; */
+            }
+        }
+
+
+
+        let Mary = {
+            /* 屬性(property) */
+            sid: "S002",
+            name: "Mary",
+            email: "",
+            score: {
+                chinese: 95,
+                computer: 83,
+                programming: 60
+            },
+            /* 方法(method) */
+            getTotalScore() {
+                return this.score.chinese + this.score.computer + this.score.programming;
+            },
+            getStudentSid() {
+                return this.sid;
+            },
+            getEmail() {
+                let email = this.email == "" ? "未填寫" : this.email;
+                return email;
+            }
+        }
+
+
+
+        let John = {
+            /* 屬性(property) */
+            sid: "S003",
+            name: "John",
+            email: "John@abc.com",
+            score: {
+                chinese: 85,
+                programming: 60
+            },
+            /* 方法(method) */
+            getTotalScore() {
+                return this.score.chinese + this.score.programming;
+            },
+            getStudentSid() {
+                return this.sid;
+            },
+            getEmail() {
+                let email = this.email == "" ? "未填寫" : this.email;
+                return email;
+            }
+        }
+
+
+
+        /*
+        console.log(Jack.getTotalScore() + "-" + Jack.name + "-" + Jack.getStudentSid() + "-" + Jack.getEmail());
+        console.log(Mary.getTotalScore() + "-" + Mary.name + "-" + Mary.getStudentSid() + "-" + Mary.getEmail());
+        console.log(John.getTotalScore() + "-" + John.name + "-" + John.getStudentSid() + "-" + John.getEmail()); 
+        可見上述程式碼皆為呼叫方法，故可以再封裝在另一個方法中，如下
+        */
+        let JackResult = Jack.getTotalScore() + "-" + Jack.name + "-" + Jack.getStudentSid() + "-" + Jack.getEmail();
+        let MaryResult = Mary.getTotalScore() + "-" + Mary.name + "-" + Mary.getStudentSid() + "-" + Mary.getEmail();
+        let JohnResult = John.getTotalScore() + "-" + John.name + "-" + John.getStudentSid() + "-" + John.getEmail();
+
+        console.log(JackResult);
+        console.log(MaryResult);
+        console.log(JohnResult);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            border: 1px solid black;
+            width: 1200px;
+            margin: auto;
+        }
+
+        #container>header {
+            /* 使用 " > " 指定<header>，而非用空格(會將所有<header>底下的標籤都包含進去) */
+            background-color: chocolate;
+            height: 250px;
+        }
+
+        #container>nav {
+            background-color: aquamarine;
+            height: 600px;
+            width: 250px;
+            float: left;
+        }
+
+        #container>section {
+            background-color: bisque;
+            height: 600px;
+            width: 950px;
+            float: right;
+        }
+
+        #container>footer {
+            background-color: brown;
+            height: 200px;
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <header><footer><nav><section>語意不同，主要用於方便區分，但標籤功能同<div> -->
+    <div id="container">
+        <header>
+            上方標題區
+        </header>
+        <nav>
+            選單區
+        </nav>
+        <section>
+            主要呈現區
+        </section>
+        <footer>
+            網站相關資訊區
+        </footer>
+    </div>
+</body>
+
+</html>
