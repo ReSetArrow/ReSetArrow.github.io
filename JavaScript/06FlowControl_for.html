@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //迴圈(loop)敘述
+        //for 敘述
+        //用在知道要執行幾次
+
+        //  for ( 起始值; 結束值; 增量值){
+        //        要執行的程式碼寫在這裡
+        //    }
+
+        //////////////////////////////////////////////////////
+        //我要執行10次，同一句
+        /* for(var i=0;i<=10;i++){
+            document.write("<h1>"+i+".Welcome my homepage!!</h1>")
+
+        } */
+        //////////////////////////////////////////////////////
+        // i 迴圈執行由大至小， j 迴圈執行由小至大
+        /* for(var i=1;i<=6;i++){
+            document.write("<h"+i+">"+i+".Welcome my homepage!!</h"+i+">")
+        }
+        for(var j=6;j>=1;j--){
+            document.write("<h"+j+">"+j+".Welcome my homepage!!</h"+j+">")
+        } */
+
+        //////////////////////////////////////////////////////
+        //由大至小，再由小到大
+        /* for (var i = 1 ; i <= 12 ; i++) {
+            var j = (i <= 6) ? i : 12 - i + 1; // 前6次是遞增，後6次是遞減
+            document.write("<h" + j + ">" + j + ". Welcome my homepage!!</h" + j + ">");
+        } */
+
+        //////////////////////////////////////////////////////
+        //巢狀迴圈，執行次數會是外圈乘以內圈的次數
+        //100個迴圈執行，內容為字串由小至大再由大至小
+        /*  for (var i = 1; i <= 100; i++) {
+             document.write(i + "<br>")//若輸入 + i + 會被辨識為字串，若要顯示當下次數會被辨識為字串，若要顯示當下次數，擇輸入 i 即可
+             for (var j = 1; j <= 12; j++) {
+                 var k = (j <= 6) ? 7 - j : j - 6;
+                 document.write("<h" + k + ">" + k + " .Welcome my homepage!!</h" + k + ">");
+             }
+         } */
+
+        //////////////////////////////////////////////////////
+        //1+2+3+...+1000，計算總合
+        /* var j = 0;
+        for (i = 1; i <= 1000; i++) {
+            j += i;//j=j+i;
+            document.write("1加到" + i + "的總合為" + j + "<br>");
+        }
+        document.write("1加到1000的總合為" + j + "<br>"); */
+
+        //////////////////////////////////////////////////////
+        //1+3+5+...999，計算總合
+       /*  var j = 0;
+        for (i = 1; i <= 1000; i += 2) {
+            j += i;
+            document.write("1加到" + i + "的總和為" + j + "<br>");
+        } */
+
+        var k = 0;
+        for (i = 1; i <= 1000; i++) {
+            
+            k += i;//k=k+i;
+            document.write("1加到" + i + "的總合為" + k + "<br>");
+        }
+
+        //////////////////////////////////////////////////////
+        // for 迴圈執行 " * " 金字塔
+        /* var star=10
+        for(var i=1;i<=10;i++){
+            var star="";
+            var j =(i<=5)?i:10-i+1;
+            document.write
+
+        } */
+
+        /*   var rows = 5; // 金字塔的層數
+
+        for (var i = 1; i <= rows; i++) {
+            var stars = "";
+
+            // 每層輸出對應數量的 *
+            for (var j = 1; j <= i; j++) {
+                stars += "*";  // 將 * 疊加到變數 stars 中
+            }
+
+            // 使用 document.write 或 console.log 輸出每一層
+            document.write(stars + "<br>");  // 使用 <br> 進行換行
+        } */
+
+
+    </script>
+
+
+</body>
+
+</html>
