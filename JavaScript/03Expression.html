@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //運算敘述句
+
+        var a=10;   //指定運算, a=10
+        a=20;   //指定運算, a=20
+
+        a= a+10;    //加法指定運算, a=30
+        a+=10;  //加法指定運算, a=40
+        a-=10;  //減法指定運算, a=30
+        a*=10   //成法指定運算, a=300
+        a/=10   //除法指定運算, a=30
+        a%=4;   //除法取於數指定運算, a= 30%4, a=2
+
+        //a=a+1;
+        //a+=1;
+        a++;//累加一, a=3
+
+        document.write("a="+a);
+        document.write("<hr>")
+        ///////////////////////////////////////////////
+        //兩數交換
+        //請宣告兩變數分別為x與y，請給x,y任意的數值，程式內容請把x與y的值對調
+        //但不可以再宣告任何新的變數，並輸出對調後的結果
+        
+        var x=3,y=4;
+        //    x=x^y;
+        //    y=x^y;
+        //    x=x^y;
+            x=x+y;  //4+3   x=7
+            y=x-y;  //y=7-4 y=3
+            x=x-y;  //x=7-3 x=4
+
+        document.write("x="+x);
+        document.write(",");
+        document.write("y="+y);
+        document.write("<hr>");
+        ///////////////////////////////////////////////
+        //不同資料型態在算術運算問題
+
+        document.write(3+2);
+        document.write("<br>");
+        document.write("3"+"2");
+        document.write("<br>");
+
+        document.write("3"+2);
+        document.write("<br>");
+        
+        document.write(3+"2");
+        document.write("<br>");
+
+        document.write(3-"2");  // JavaScript 字串會數值相減
+        document.write("<br>");
+
+        document.write("3"-2);  // JavaScript 字串會數值相減
+        document.write("<br>");
+
+        document.write("a45"-2);  //NaN不是數字
+        document.write("<br>");
+
+        var m="10";
+        document.write(m-0+2);  //先用-0轉換成數值
+        document.write("<hr>");
+        ///////////////////////////////////////////////
+
+        //使用 parseInt()來做資料型態轉換
+        //Integer整數型態
+
+        document.write(parseInt(m)+2);
+        document.write("<hr>");
+
+        var n=5/2;
+
+        n=parseInt(n);  //運算後取整數
+        document.write(n);
+        document.write("<br>");
+        document.write(parseInt("111123aba6666d")); //先顯示數字，後面英文忽略
+        document.write("<br>");
+        document.write(parseInt("a66667686"));  //先有英文，所以NaN
+        document.write("<br>");
+
+        z=123;
+        document.write(z);
+        document.write("<br>");
+
+        var s;
+        document.write(s);  //undefined,未定義資料型態(非錯誤)
+        document.write(w);  //未宣告(會報錯)，JavaScript在程式碼報錯後不執行
+
+    </script>
+</body>
+</html>
