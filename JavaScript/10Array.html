@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <span style="color: red;">紅</span>
+    <span style="color: orange;">橙</span>
+    <span style="color: yellow;">黃</span>
+    <span style="color: green;">綠</span>
+    <span style="color: blue;">藍</span>
+    <span style="color: indigo;">靛</span>
+    <span style="color: violet;">紫</span>
+
+    <hr>
+    <script>
+        //陣列(Array)
+        //一種資料結構
+        var Rainbow = ["紅", "橙", "黃", "綠", "藍", "靛", "紫", "粉紅"];
+        document.write("Rainbow的資料型態<br>");
+        document.write(typeof (Rainbow));   //資料型態
+        document.write("<hr>");
+        document.write("Rainbow的完整陣列內容<br>");
+        document.write(Rainbow);
+        document.write("<hr>");
+        document.write("Rainbow[0]的值<br>");
+        document.write(Rainbow[0]);
+        document.write("<hr>");
+        document.write("以 for 迴圈 i 指定範圍顯示Rainbow的資料型態<br>");
+        for (i = 0; i < 7; i++) {
+            document.write(Rainbow[i] + "、");
+        }   //容錯率不好
+        document.write("<hr>");
+        //修正上方迴圈增加程式彈性
+        //讓程式抓取陣列的長度
+        document.write("以 for 迴圈 i < Rainbow.length 顯示Rainbow的資料型態<br>");
+        for (i = 0; i < Rainbow.length; i++) {
+            document.write(Rainbow[i] + "、");
+        }
+        document.write("<hr>");
+
+        //拜訪迴圈，用於拜訪集合資料的 for 迴圈
+        //for...in...
+        document.write("拜訪迴圈，用於拜訪集合資料的 for...in... 迴圈<br>");
+        document.write("彩虹有七種顏色，分別是:")
+        for (var i in Rainbow) {    /* 把 Rainbow 的索引值丟進 i */
+            document.write((parseInt(i) + 1) + "-");    /* parseInt(i)將 i 值變回數字用於運算 */
+            document.write(Rainbow[i] + ",");   /*  */
+        }
+        document.write("<hr>");
+
+        //for...of...
+        for (var item of Rainbow) {    /*  */
+            document.write(item + "、");
+        }
+        document.write("<hr>");
+
+        //實際應用
+
+        /* 
+        部門代碼    部門名稱
+            01      資訊部
+            02      管理部
+            03      行銷部
+            04      企劃部
+            05      人事處
+            06      研發處
+        */
+
+        var deptNo = ["01", "02", "03", "04", "05", "06"];
+        var deptName = ["資訊部", "管理部", "行銷部", "企劃部", "人事處", "研發處"];
+
+        for (var item in deptName) {
+            document.write(deptNo[item] + "-" + deptName[item] + "<br>");
+        }
+        document.write("<hr>");
+
+        /*
+        <span style="color: red;">紅</span>
+        <span style="color: orange;">橙</span>
+        <span style="color: yellow;">黃</span>
+        <span style="color: green;">綠</span>
+        <span style="color: blue;">藍</span>
+        <span style="color: indigo;">靛</span>
+        <span style="color: violet;">紫</span>
+        */
+        var RainbowName = ["紅", "橙", "黃", "綠", "藍", "靛", "紫"];
+        var styleColor = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"]
+        for (var item in RainbowName) {
+            document.write(`<span style="color: ${styleColor[item]} ;" > ${RainbowName[item]} </span >`)
+        }
+        /*
+        宣告兩個陣列分別是
+        文字以及要應用於<span style="color:">語句的字體顏色
+        再用document.write在for...in...迴圈內輸出
+        用JS的語法寫HTML的內容
+        */
+    </script>
+</body>
+
+</html>
